@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <Autocomplete :items="customers"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import customers from './assets/customers';
+import Autocomplete from './components/Autocomplete.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {Autocomplete},
+
+ mounted(){
+   this.customers = customers;
+   console.log(this.customers)
+ },
+
+data(){
+  return{
+    customers:[]
   }
+}
+
 }
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>
